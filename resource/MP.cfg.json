@@ -1,0 +1,123 @@
+[
+    {
+        "key": "g_nTaxiLaunchTime",
+        "value": 4,
+        "valueType": "uint",
+       "comment": "距离TOT前，选择TAXI时的进入座舱时间（分钟）"
+    },
+    {
+        "key": "g_nReagTimerCam",
+        "value": 10,
+        "valueType": "uint",
+        "comment": "AB A/C despawn in Campaign -> delay before disappearing"
+    },
+    {
+        "key": "g_nDeagTimerCamp",
+        "value": 10,
+        "valueType": "uint",
+        "comment": "AB A/C spawn in Campaign -> lead time before taxiing"
+    },
+    {
+        "key": "g_nReagTimerTE",
+        "value": 20,
+        "valueType": "uint",
+        "comment": "AB A/C despawn in Tactical Engagement -> delay before disappearing"
+    },
+    {
+        "key": "g_nDeagTimerTE",
+        "value": 20,
+        "valueType": "uint",
+        "comment": "AB A/C spawn in Tactical Engagement -> lead time before taxiing"
+    },
+    {
+        "key": "g_nRespawnTimeforStuckAI",
+        "value": 6,
+        "valueType": "uint",
+        "comment": "Improved method to allow servers to despawn stucked AI on airbases atomatically."
+    },
+    {
+        "key": "g_npercentage_available_aircraft",
+        "value": 75,
+        "valueType": "uint",
+        "range": {
+            "min": 0,
+            "max": 100
+        },
+        "comment": "Determines what proportion of your squadron's roster will be available (in %)."
+    },
+    {
+        "key": "g_nminimum_available_aircraft",
+        "value": 4,
+        "valueType": "uint",
+        "range": {
+            "min": 0,
+            "max": 100
+        },
+        "comment": "Setting allows you to limit the effect of a low \"percentage\" setting (lower-limit of available aircraft)."
+    },
+    {
+        "key": "g_bEnableABRelocation",
+        "value": 1,
+        "valueType": "bool",
+        "comment": "Airbase relocation."
+    },
+    {
+        "key": "g_nForceMinClientBwSetting",
+        "value": 2048,
+        "valueType": "uint",
+        "comment": "Allows the MP host to specify a minimum client bandwidth setting (default 0 = no value forced)."
+    },
+    {
+        "key": "g_bNoAiForHumanControlledSqd",
+        "value": 0,
+        "valueType": "bool",
+        "comment": "Allows the MP host to specify whether AI pilots can be assigned for player controlled squadrons (default 0 = false)."
+    },
+    {
+        "key": "g_bFogOfWarSave",
+        "value": 0,
+        "valueType": "bool",
+        "comment": "If set, a client can save only the units of his team or allied, and the enemy spotted units (default 0 = false)."
+    },
+    {
+        "key": "g_nRemoteControlSurfacesInterval",
+        "value": 200,
+        "valueType": "uint",
+        "range": [
+            0,
+            {
+                "min": 20,
+                "max": 1000
+            }
+        ],
+        "comment": "Time in ms between control surface updates, valid range 20-1000 (default 200), 0 = disabled."
+    },
+    {
+        "key": "g_bHostDisableP2pForDubiousConnections",
+        "value": 0,
+        "valueType": "bool",
+        "comment": "If activated, dubious connections will automatically be forced to CS although they would work as P2P (default 0 = false)."
+    },
+    {
+        "key": "g_bEnforceBandwidthLimits",
+        "value": 0,
+        "valueType": "bool",
+        "comment": "If set, the network transfer rates set in the UI will be enforced - BMS usually does limiting based on \"best effort\" only (default 0/false)."
+    },
+    {
+        "key": "g_fAmbientmin",
+        "value": 0.01,
+        "valueType": "float",
+        "range": {
+            "min": 0.0,
+            "max": 1.0
+        },
+        "comment": "Allows to tweak sky brightness at night."
+    },
+    {
+        "key": "g_bEnableGtraining",
+        "value": 1,
+        "valueType": "bool",
+        "comment": "Enables G training mechanism for human player (G warmup)."
+    }
+]

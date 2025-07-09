@@ -1,0 +1,27 @@
+[
+    {
+        "key": "g_bUseTracerColors",
+        "value": 1,
+        "comment": "红方的任何飞机将具有绿色航迹。"
+    },
+    {
+        "key": "g_nJetHeatShaderMaxSpeed",
+        "value": 250,
+        "comment": "当飞机的Jet Heat Exhaust在速度（节）超过此值时将消失（默认250节）。"
+    },
+    {
+        "key": "g_bUseTerrainNightLightsTextureFilter",
+        "value": 1,
+        "comment": "控制用于地形区块夜间灯光的纹理过滤器（1 = 各向异性过滤器，0 = 点过滤器）。"
+    },
+    {
+        "key": "g_fNewTerrainCoarseBumpMapIntensity",
+        "value": 0.625,
+        "comment": "决定地形凸起贴图的强度，值在0到1之间，默认值为0.625。"
+    },
+    {
+        "key": "g_nNewTerrainCoarseBumpMapTilingCx",
+        "value": 12,
+        "comment": "地形法线贴图的平铺因子。较高的值意味着较低的平铺（该因子是一个除数） - 有效值1 - 64（仅限整数），默认值12。"
+    }
+]

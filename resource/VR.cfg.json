@@ -1,0 +1,47 @@
+[
+    {
+        "key": "g_nVRHMD",
+        "value": 0,
+        "comment": "启用VR - 0: 不启用VR；1: SteamVR；2: OpenXR。（可被-vr、-xr或-novr命令行参数覆盖）"
+    },
+    {
+        "key": "g_fVRZoom",
+        "value": 2.0,
+        "comment": "用于LookCloser回调，在VR中缩小视场的系数。"
+    },
+    {
+        "key": "g_nVRHMCSEYE",
+        "value": 0,
+        "comment": "HMCS渲染，0为右眼，1为左眼，-1为双眼。"
+    },
+    {
+        "key": "g_fVRResolution",
+        "value": 1.0,
+        "comment": "VR分辨率倍增系数。"
+    },
+    {
+        "key": "g_fVRIPDMultiplier",
+        "value": 1.0,
+        "comment": "VR瞳距（IPD）因子。"
+    },
+    {
+        "key": "g_bVRParallelRenderThread",
+        "value": 1,
+        "comment": "为VR启用多线程渲染（1: 更高吞吐量；0: 更低延迟）。"
+    },
+    {
+        "key": "g_bVRPredictFutureHeadMatrices",
+        "value": 0,
+        "comment": "为SteamVR预测未来头部矩阵。仅在g_bVRParallelRenderThread启用时有效。"
+    },
+    {
+        "key": "g_bVRNoPresent",
+        "value": 0,
+        "comment": "不会在VR中显示伴随窗口（只有HMD会显示3D图像）。"
+    },
+    {
+        "key": "g_bMixedRealityCockpitCoverEnabled",
+        "value": 0,
+        "comment": "设置此项将默认开启（1）或关闭（0）混合现实座舱。游戏中仍可切换。"
+    }
+]

@@ -37,6 +37,8 @@ private:
     MPItemModel *Comm_Manager;
     MPItemModel *Graphic_Manager;
     MPItemModel *VR_Manager;
+    MPItemModel *Other_Manager;
+    MPItemModel *HotasNkey_Manager;
 
     QStringList QMapToQString(QMap<QString,QString> qmap);
 };

@@ -4,5 +4,7 @@
         <file>resource/Comm.cfg.json</file>
         <file>resource/Graphic.cfg.json</file>
         <file>resource/VR.cfg.json</file>
+        <file>resource/Hotas&amp;key.cfg.json</file>
+        <file>resource/Other.cfg.json</file>
     </qresource>
 </RCC>

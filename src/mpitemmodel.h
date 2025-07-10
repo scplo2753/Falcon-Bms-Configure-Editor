@@ -10,16 +10,19 @@
 class MPItemModel : public QStandardItemModel
 {
 public:
-    MPItemModel(QString json_Path,QTableWidget *table);
-    void initTable(QMap<QString,QString>UserDefinitions);
+    MPItemModel(QString json_name,QTableWidget *table);
     QMap<QString,QString> getOptionForWrite();
 
 private:
     QTableWidget *table;
+    QString json_name;
+    QString json_path;
     QJsonArray raw_MP_Cfg;
+    QVariantMap I18nMap;
     QMap<QString,QString> OptionsForWrite;
 
-    void parseRawJson();
+    void initTable();
+    QJsonObject LoadI18nFile();
 };
 
 #endif // MPITEMMODEL_H

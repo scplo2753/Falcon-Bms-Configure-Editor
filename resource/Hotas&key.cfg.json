@@ -1,0 +1,47 @@
+[
+    {
+        "key": "g_nHotasPinkyShiftMagnitude",
+        "value": 256,
+        "comment": "Enable DirectX Shifting and specify button offset."
+    },
+    {
+        "key": "g_fMouseSensitivity",
+        "value": 1.0,
+        "comment": "3D mouse sensitivity multiplier."
+    },
+    {
+        "key": "g_bMouseWheelKnobs",
+        "value": 1,
+        "comment": "Allows mouse wheel to turn knobs in 3d pit."
+    },
+    {
+        "key": "g_bEnableExclusiveMouseCapture",
+        "value": 1,
+        "comment": "Captures the mouse when in 3D so that you don't click something on the desktop when running windowed mode."
+    },
+    {
+        "key": "g_bMouseButton4TogglesClickablePit",
+        "value": 0,
+        "comment": "If set, the 4th mouse button (if available) will toggle between mouselook and clickable pit. the wheel is button 3."
+    },
+    {
+        "key": "g_fFOVIncrement",
+        "value": 5,
+        "comment": "Sets how much the field of view should change for each keypress in degrees."
+    },
+    {
+        "key": "g_fMaximumFOV",
+        "value": 80,
+        "comment": "Limits the maximum amount that the FOV can be increased."
+    },
+    {
+        "key": "g_fNarrowFOV",
+        "value": 20,
+        "comment": "Defines the narrow field of view used by the \"Look Closer\" view command."
+    },
+    {
+        "key": "g_bAfterburnerDetentClick",
+        "value": 0,
+        "comment": "Makes the same clicks when the throttle passes the afterburner detent as it does when passing the Idle detent."
+    }
+]

@@ -1,0 +1,97 @@
+[
+    {
+        "key": "g_nMessageScrollTime",
+        "value": 15,
+        "comment": "Time in seconds until a chat message scrolls out of view."
+    },
+    {
+        "key": "g_bPreventScreensaver",
+        "value": 1,
+        "comment": "activation of screensaver/powersave mode (1 = prevent, 0 = do not prevent)"
+    },
+    {
+        "key": "g_bPrettyScreenShot",
+        "value": 0,
+        "comment": "If set, \"PrtScr\" key will make pretty screenshots (no overlays) instead of normal ones (1 = pretty, 0 = normal)."
+    },
+    {
+        "key": "g_nJpegCompression",
+        "value": 90,
+        "comment": "Sets the compression level for JPEG screenshots, 0-100 (default 90)."
+    },
+    {
+        "key": "g_nActionCameraTimer",
+        "value": 8000,
+        "comment": "Sets the duration in ms for the action camera before switching views. (default is 8000, i.e. 8 seconds)."
+    },
+    {
+        "key": "g_nPadlockBoxThickness",
+        "value": 1,
+        "comment": "Determines the thickness of the padlock box."
+    },
+    {
+        "key": "g_fPadlockBoxTimeout",
+        "value": 3,
+        "comment": "Number in seconds for how long the box should be displayed over any one padlock subject before it disappears (-1 turns it off)."
+    },
+    {
+        "key": "g_bOnlinePlayersDisplayDefault",
+        "value": 0,
+        "comment": "Specifies whether the OnlinePlayersDisplay overlay should be ON(1) or OFF(0) by default when entering 3D."
+    },
+    {
+        "key": "g_bshowframeratedefault",
+        "value": 0,
+        "comment": "Specifies whether the frame rate overlay should be ON(1) or OFF(0) by default when entering 3D."
+    },
+    {
+        "key": "g_bF16MfdHasRwr",
+        "value": 0,
+        "comment": "Enables the RWR MFD page back for the F16s (unrealistic feature)."
+    },
+    {
+        "key": "g_bhudAOA",
+        "value": 1,
+        "comment": "Enables the HUD AOA for non-F16 aircraft."
+    },
+    {
+        "key": "g_bPilotEntertainment",
+        "value": 0,
+        "comment": "Enables the user to control WinAmp."
+    },
+    {
+        "key": "g_nWinAmpInitVolume",
+        "value": 204,
+        "comment": "Sets the initial WimAmp volume."
+    },
+    {
+        "key": "g_nBumpIntensityMinTime",
+        "value": 100,
+        "comment": "This determines the minimum bump intensity \"peak time\", i.e how long a value is visible in shared memory (default 100)."
+    },
+    {
+        "key": "g_bPlayDogfightBits",
+        "value": 1,
+        "comment": "Enables playback of the various sound comments in the dogfight scores menu."
+    },
+    {
+        "key": "g_fViewlimitPitchDown",
+        "value": 0.0,
+        "comment": "Overrides all A/C \"viewlimit pitch down\" values from the 3dckpit.dat files, max. 90.0, only higher values take effect."
+    },
+    {
+        "key": "g_bEnableRandomFailures",
+        "value": 0,
+        "comment": "Enables random failures."
+    },
+    {
+        "key": "g_fMeanTimeBetweenFailures",
+        "value": 0,
+        "comment": "The MTBF in hours. If set to 0, uses the value in ac.dat."
+    },
+    {
+        "key": "g_bEnableWIPF18Avionics",
+        "value": 0,
+        "comment": "F-18C Work In Progress Avionics (disabled by default)."
+    }
+]

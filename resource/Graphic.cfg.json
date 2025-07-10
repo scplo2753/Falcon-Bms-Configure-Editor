@@ -2,26 +2,101 @@
     {
         "key": "g_bUseTracerColors",
         "value": 1,
-        "comment": "红方的任何飞机将具有绿色航迹。"
+        "comment": "Any aircraft from a Red team will have green tracers."
     },
     {
         "key": "g_nJetHeatShaderMaxSpeed",
         "value": 250,
-        "comment": "当飞机的Jet Heat Exhaust在速度（节）超过此值时将消失（默认250节）。"
+        "comment": "Jet Heat Exhaust will disappears when speed (in knots) exceed this value (default 250 knots)."
     },
     {
         "key": "g_bUseTerrainNightLightsTextureFilter",
         "value": 1,
-        "comment": "控制用于地形区块夜间灯光的纹理过滤器（1 = 各向异性过滤器，0 = 点过滤器）。"
+        "comment": "This controls which texture filter to use for the terrain tile night lights (1 = anisotropic filter, 0 = point filter)."
     },
     {
         "key": "g_fNewTerrainCoarseBumpMapIntensity",
         "value": 0.625,
-        "comment": "决定地形凸起贴图的强度，值在0到1之间，默认值为0.625。"
+        "comment": "Decide how strong the terrain bump mapping will be noticed, values between 0 - 1, default 0.625"
     },
     {
         "key": "g_nNewTerrainCoarseBumpMapTilingCx",
         "value": 12,
-        "comment": "地形法线贴图的平铺因子。较高的值意味着较低的平铺（该因子是一个除数） - 有效值1 - 64（仅限整数），默认值12。"
+        "comment": "Decide the tiling factor of the terrain bump map. Higher values mean LOWER tiling (The factor is a divider) - valid values 1 - 64 (Integeres only), Default 12."
+    },
+    {
+        "key":"g_fNewTerrainProceduralDistance",
+        "value":12,
+        "comment":" View distance, in KM, that the procedural texturing will start to blend in. Reducing it to 0 will cancel the Procedural texturing entirely."
+    },
+    {
+        "key":"g_bNewTerrainProceduralUse1024Textures",
+        "value":0,
+        "comment":"By default the procedural textures use 2048x2048 textures, but there is a folder of lower resolution textures 1024x1024. Using the lower resolution textures can help with performance when close to the ground"
+    },
+    {
+        "key":"g_fNewTerrainProceduralDetailsStrength",
+        "value":1.0,
+        "comment":"How much the procedural detail color textures will be applied on the terrain."
+    },
+    {
+        "key":"g_fNewTerrainProceduralNormalsStrength",
+        "value":0.25,
+        "comment":"How much the procedural Normal maps textures will be applied on the terrain"
+    },
+    {
+        "key":"g_fNewTerrainGlobalColorMapBlendingFactor",
+        "value":-1.0,
+        "comment":"Decides the blending factor"
+    },
+    {
+        "key":"g_fNewTerrainGlobalColorMapIntensity",
+        "value":-1.0,
+        "comment":"Decided the GCM intensity"
+    },
+    {
+        "key":"g_fNewTerrainGlobalColorMapAltitudeThreshold",
+        "value":12000,
+        "comment":"Decide at what altitude (AGL) the GCM effect will start blending in."
+    },
+    {
+        "key":"g_fNewTerrainTessellationFactor",
+        "value":0.5,
+        "comment":"The tessellation factor will decide how much closer or further out the mesh will become more detailed"
+    },
+    {
+        "key":"g_bNewTerrainPhotorealForce4KTiles",
+        "value":0,
+        "comment":"Setting this one will cancel the loading of the high resolution 16K Photoreal textures – At some systems, especially those that struggle with VRAM and GPU processing it may be a real optimization option. However, the photoreal will be much lower resolution."
+    },
+    {
+        "key":"g_bNewTerrainUseHiresTiles",
+        "value":1,
+        "comment":"Load and make use of the selective places (Mostly Airbases) Hires Tiles. Can possibly help with performance if disabled, however will mean no Hires tiles will be used at all."
+    },
+    {
+        "key":"g_nNewTerrainHiresTilesDistKM",
+        "value":32,
+        "comment":"Decide how far Hires tiles will start to show up. May affect VRAM usage and some performance (low effect maybe, but still)"
+    },
+    {
+        "key":"g_bRenderNewTerrainToENVMap",
+        "value":1,
+        "comment":"Render or not render the New Terrain into the Environment map. Can have performance effect if disabled, however not rendering terrain to the ENV map will mean reflections will look much worse (Instead of terrain there will be fog color)"
+    },
+    {
+        "key":"g_fNewTerrainFrustumCullingFactor",
+        "value":1.0,
+        "comment":"Float value that decide the Terrain frustum culling while the GPU performs the rendering. Change the default value (Increase slowly) only if you are on a wide FOV and start to see some wrong triangles at edges of screen."
+    },
+    {
+        "key":"g_nPrefilterENVSampling",
+        "value":1024,
+        "comment":"Decide how many texturing passes the Environment mapping algorithm will perform while creating the map. Reducing the default value may help with performance."
+    },
+    {
+        "key":"g_nHdrToneMapMode",
+        "value":1,
+        "comment":"Tone map modes.(See technical-manual.pdf)"
     }
 ]

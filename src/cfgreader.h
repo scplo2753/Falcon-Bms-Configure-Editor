@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QJsonObject>
 #include <QTextStream>
 #include <QWidget>
 
@@ -11,9 +12,10 @@ class CfgReader:public QWidget
 {
 public:
     CfgReader(const QString &File_Path);
-    QJsonArray get_parsed_data() const;
+    QJsonArray getParsedArray();
+    QJsonObject getParsedObjects();
 private:
-    QJsonArray parsed_Data;
+    QJsonDocument json_doc;
 
     QByteArray loadCfg(const QString &File_Path);
     void parseByte(const QString &File_Path);

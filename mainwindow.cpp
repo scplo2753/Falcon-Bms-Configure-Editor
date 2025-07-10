@@ -12,10 +12,12 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    MP_Manager=new MPItemModel(":/cfg/resource/MP.cfg.json",ui->tableWidget_MP);
-    Comm_Manager=new MPItemModel(":/cfg/resource/Comm.cfg.json",ui->tableWidget_Comm);
-    Graphic_Manager=new MPItemModel(":/cfg/resource/Graphic.cfg.json",ui->tableWidget_Graphic);
-    VR_Manager=new MPItemModel(":/cfg/resource/VR.cfg.json",ui->tableWidget_VR);
+    MP_Manager=new MPItemModel("MP.cfg.json",ui->tableWidget_MP);
+    Comm_Manager=new MPItemModel("Comm.cfg.json",ui->tableWidget_Comm);
+    Graphic_Manager=new MPItemModel("Graphic.cfg.json",ui->tableWidget_Graphic);
+    VR_Manager=new MPItemModel("VR.cfg.json",ui->tableWidget_VR);
+    Other_Manager=new MPItemModel("Other.cfg.json",ui->tableWidget_Other);
+    HotasNkey_Manager=new MPItemModel("Hotas&key.cfg.json",ui->tableWidget_HotasAndKey);
 
     UserCfgReader cfgreader;
     UserDefinitions=cfgreader.getUserDefineOptions();
@@ -34,6 +36,8 @@ void MainWindow::on_pushButton_OK_clicked()
     KeyValueNeedToSave.insert(Comm_Manager->getOptionForWrite());
     KeyValueNeedToSave.insert(Graphic_Manager->getOptionForWrite());
     KeyValueNeedToSave.insert(VR_Manager->getOptionForWrite());
+    KeyValueNeedToSave.insert(Other_Manager->getOptionForWrite());
+    KeyValueNeedToSave.insert(HotasNkey_Manager->getOptionForWrite());
 
     QStringList UserDefineStrList=QMapToQString(KeyValueNeedToSave);
     QStringList ContentToWrite=UserDefineStrList+LauncherDefinitions;

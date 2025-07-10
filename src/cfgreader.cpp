@@ -3,11 +3,7 @@
 
 CfgReader::CfgReader(const QString &file_path)
 {
-    parseByte(file_path);
-}
-
-QJsonArray CfgReader::get_parsed_data() const{
-    return parsed_Data;
+    json_doc=QJsonDocument::fromJson(loadCfg(file_path));
 }
 
 QByteArray CfgReader::loadCfg(const QString &file_path)
@@ -16,7 +12,7 @@ QByteArray CfgReader::loadCfg(const QString &file_path)
     if(!file_obj.open(QIODevice::ReadOnly|QIODevice::Text))
     {
         QMessageBox::warning(this, tr("BMS Configure Editor"),
-                             tr("Cfg Not Found"),
+                             tr("Json Not Found"),
                              QMessageBox::Ok);
         exit(1);
     }
@@ -28,8 +24,12 @@ QByteArray CfgReader::loadCfg(const QString &file_path)
     return json_bytes;
 }
 
-void CfgReader::parseByte(const QString &file_path)
+QJsonArray CfgReader::getParsedArray()
 {
-    QJsonDocument json_doc=QJsonDocument::fromJson(loadCfg(file_path));
-    parsed_Data=json_doc.array();
+    return json_doc.array();
+}
+
+QJsonObject CfgReader::getParsedObjects()
+{
+    return json_doc.object();
 }

@@ -27,11 +27,15 @@ private slots:
 
     void on_pushButton_Cancel_clicked();
 
+    void on_pushButton_OpenCfg_clicked();
+
 private:
     QJsonObject MP_Obj;
     Ui::MainWindow *ui;
-    QStringList LauncherDefinitions;
-    QMap<QString,QString> UserDefinitions;
+    QStringList LauncherDefinitionOptions;
+    QMap<QString,QString> UserDefinitionOptions;
+    QMap<QString,QString> UnknownOptions;
+    QString Cfg_Path;
 
     MPItemModel *MP_Manager;
     MPItemModel *Comm_Manager;

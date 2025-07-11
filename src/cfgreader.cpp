@@ -1,9 +1,15 @@
 #include "cfgreader.h"
 #include <QMessageBox>
 
-CfgReader::CfgReader(const QString &file_path)
+CfgReader::CfgReader(const QString &file_path,QWidget *parent):
+    QWidget(parent)
 {
     json_doc=QJsonDocument::fromJson(loadCfg(file_path));
+}
+
+CfgReader::~CfgReader()
+{
+
 }
 
 QByteArray CfgReader::loadCfg(const QString &file_path)

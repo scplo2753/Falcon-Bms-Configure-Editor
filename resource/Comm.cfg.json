@@ -3,25 +3,25 @@
             "key": "g_nF1TeamUiFreq",
             "value": 339750,
             "valueType": "uint",
-            "comment": "F1 队内UI语音通信的频率（用于Force on Force类型任务）"
+            "comment": "Frequency for F1 UI voice comms (for Force on Force type missions)."
         },
         {
             "key": "g_nF2TeamUiFreq",
             "value": 1234,
             "valueType": "uint",
-            "comment": "F2 队内UI语音通信的频率（用于Force on Force类型任务）"
+            "comment": "Frequency for F2 UI voice comms (for Force on Force type missions)."
         },
         {
             "key": "g_bInitBUPfromDTC",
             "value": 1,
             "valueType": "bool",
-            "comment": "如果启用，UHF备份预设将使用UFC DTC值初始化，而不是通常的硬编码内部值。1=启用，0=禁用。"
+            "comment": "If set, the UHF Backup presets will be initialized with the UFC DTC values instead of the usual hardcoded internal values."
         },
         {
             "key": "g_bUseIvcUiVolume",
             "value": 1,
             "valueType": "bool",
-            "comment": "UI IVC音量独立于COMM1/2/UHF/VHF音量滑块控制。1=启用，0=禁用。"
+            "comment": "UI IVC Volume is controlled independently from the COMM1/2/UHF/VHF volume sliders."
         },
         {
             "key": "g_nIvcUiVolume",
@@ -33,7 +33,7 @@
                     "max": 6
                 }
             ],
-            "comment": "UI IVC音量（单位：分贝），范围-6到+6（如果独立控制）。"
+            "comment": "UI IVC Volume in db, range -6 to +6 (if controlled independently)."
         },
         {
             "key": "g_fRadioBalance",
@@ -45,37 +45,37 @@
                     "max": 100.0
                 }
             ],
-            "comment": "UHF/VHF播放音量偏离中心的分贝值（向相反方向），范围±100.0"
+            "comment": "The value in DB on how much to shift the UHF/VHF playback volume out of center (into opposite directions), range +/-100.0"
         },
         {
             "key": "g_nDynamicVoices",
             "value": 128,
             "valueType": "uint",
-            "comment": "声音代码分配的最大语音数。"
+            "comment": "Maximum number of voices allocated by the sound code."
         },
         {
             "key": "g_nSoundUpdateMS",
             "value": 10,
             "valueType": "uint",
-            "comment": "声音代码更新前必须经过的毫秒数。"
+            "comment": "How many milliseconds must elapse before the sound code updates."
         },
         {
             "key": "g_nSoundSwitchFix",
             "value": 1,
             "valueType": "bool",
-            "comment": "此选项可修复AI通信消失的问题。0=禁用，1=启用。"
+            "comment": "This patch may fix the problem of AI comms disappearing."
         },
         {
             "key": "g_nMaxBRAARange",
             "value": 25,
             "valueType": "uint",
-            "comment": "决定无线电通信使用BRAA而不是BE的距离，默认25。"
+            "comment": "This determine the distance at which the radio communications will use BRAA instead of BE, default 25."
         },
         {
             "key": "g_bDisableCommsMenu",
             "value": 0,
             "valueType": "bool",
-            "comment": "如果启用，通信菜单（塔台/Awacs/僚机等）将不再显示。1=禁用，0=启用。"
+            "comment": "If set, the comms menu (Tower/Awacs/Wingman ... etc ...) will no longer be drawn."
         },
         {
             "key": "g_nRadioMenuAlpha",
@@ -87,12 +87,12 @@
                     "max": 100
                 }
             ],
-            "comment": "通信菜单窗口的透明度百分比，0%为全透明，100%为不透明。"
+            "comment": "If set, the comms menu (Tower/Awacs/Wingman ... etc ...) will no longer be drawn."
         },
         {
             "key":"g_bRingCommMenu",
             "value":1,
             "valueType":"bool",
-            "comment":"启用环形通信菜单（0为传统菜单）"
+            "comment":"Using Ring communications menu(0 for legacy menu)"
         }
     ]

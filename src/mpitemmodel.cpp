@@ -4,13 +4,19 @@
 #include <QHBoxLayout>
 #include <QLineEdit>
 
-MPItemModel::MPItemModel(QString json_name, QTableWidget *table)
-    : json_name(json_name), json_path(":/cfg/resource/" + json_name),
-    table(table) {
+MPItemModel::MPItemModel(QString json_name, QTableWidget *table,QWidget *parent)
+    : json_name(json_name),
+    json_path(":/cfg/resource/" + json_name),
+    table(table),
+    QStandardItemModel(parent)
+{
     CfgReader MP_CFG_READER(json_path);
     raw_MP_Cfg = MP_CFG_READER.getParsedArray();
     initTable();
 }
+
+MPItemModel::~MPItemModel()
+{}
 
 void MPItemModel::initTable() {
     table->setRowCount(raw_MP_Cfg.size());
@@ -25,6 +31,8 @@ void MPItemModel::initTable() {
 
     for (int index = 0; index < raw_MP_Cfg.size(); index++) {
         auto iterator_object = raw_MP_Cfg[index].toObject();
+
+        index_of_options[iterator_object["key"].toString()]=index;
 
         QCheckBox *checkbox = new QCheckBox();
         QWidget *checkWidget = new QWidget();
@@ -63,8 +71,7 @@ void MPItemModel::initTable() {
 QMap<QString, QString> MPItemModel::getOptionForWrite() {
     QMap<QString, QString> Qmap_options;
     for (int row = 0; row < table->rowCount(); row++) {
-        QWidget *checkboxWidget = table->cellWidget(row, 0);
-        QCheckBox *checkbox = checkboxWidget->findChild<QCheckBox *>();
+        QCheckBox *checkbox = table->cellWidget(row, 0)->findChild<QCheckBox *>();
         if (checkbox->isChecked()) {
             QJsonObject Obj_option = raw_MP_Cfg[row].toObject();
             QString key = Obj_option["key"].toString();
@@ -80,4 +87,17 @@ QJsonObject MPItemModel::LoadI18nFile() {
     CfgReader I18nLoader(file_Path);
     QJsonObject raw_objects = I18nLoader.getParsedObjects();
     return raw_objects;
+}
+
+bool MPItemModel::keyIsInList(const QString &key,const QString &value)
+{
+    if(index_of_options.contains(key))
+    {
+        int index=index_of_options[key];
+        table->cellWidget(index,0)->findChild<QCheckBox *>()->setChecked(true);
+        table->cellWidget(index,0);
+        table->item(index,2)->setText(value);
+        return true;
+    }
+    return false;
 }

@@ -11,7 +11,8 @@
 class CfgReader:public QWidget
 {
 public:
-    CfgReader(const QString &File_Path);
+    CfgReader(const QString &File_Path,QWidget *parent=nullptr);
+    ~CfgReader();
     QJsonArray getParsedArray();
     QJsonObject getParsedObjects();
 private:

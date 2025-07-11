@@ -10,8 +10,10 @@
 class MPItemModel : public QStandardItemModel
 {
 public:
-    MPItemModel(QString json_name,QTableWidget *table);
+    MPItemModel(QString json_name,QTableWidget *table,QWidget *parent=nullptr);
+    ~MPItemModel();
     QMap<QString,QString> getOptionForWrite();
+    bool keyIsInList(const QString &key,const QString &value);
 
 private:
     QTableWidget *table;
@@ -19,6 +21,7 @@ private:
     QString json_path;
     QJsonArray raw_MP_Cfg;
     QVariantMap I18nMap;
+    QMap<QString,int> index_of_options;
     QMap<QString,QString> OptionsForWrite;
 
     void initTable();

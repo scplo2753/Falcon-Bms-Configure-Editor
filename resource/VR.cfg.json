@@ -2,46 +2,46 @@
     {
         "key": "g_nVRHMD",
         "value": 0,
-        "comment": "启用VR - 0: 不启用VR；1: SteamVR；2: OpenXR。（可被-vr、-xr或-novr命令行参数覆盖）"
+        "comment": "Enables VR - 0: no VR; 1: SteamVR; 2: OpenXR.  (overridden by -vr, -xr or -novr command line options)"
     },
     {
         "key": "g_fVRZoom",
         "value": 2.0,
-        "comment": "用于LookCloser回调，在VR中缩小视场的系数。"
+        "comment": "Factor to reduce field-of-view in VR, for LookCloser callback."
     },
     {
         "key": "g_nVRHMCSEYE",
         "value": 0,
-        "comment": "HMCS渲染，0为右眼，1为左眼，-1为双眼。"
+        "comment": "HMCS renders, 0 right eye, 1 left eye, -1 both eyes."
     },
     {
         "key": "g_fVRResolution",
         "value": 1.0,
-        "comment": "VR分辨率倍增系数。"
+        "comment": "VR resolution multiplier."
     },
     {
         "key": "g_fVRIPDMultiplier",
         "value": 1.0,
-        "comment": "VR瞳距（IPD）因子。"
+        "comment": "VR interpupillary distance (IPD) factor."
     },
     {
         "key": "g_bVRParallelRenderThread",
         "value": 1,
-        "comment": "为VR启用多线程渲染（1: 更高吞吐量；0: 更低延迟）。"
+        "comment": "Enable multi-threaded rendering for VR (1: higher throughput; 0: lower latency)."
     },
     {
         "key": "g_bVRPredictFutureHeadMatrices",
         "value": 0,
-        "comment": "为SteamVR预测未来头部矩阵。仅在g_bVRParallelRenderThread启用时有效。"
+        "comment": "Predict future head matrices for SteamVR. Only works with g_bVRParallelRenderThread enabled."
     },
     {
         "key": "g_bVRNoPresent",
         "value": 0,
-        "comment": "不会在VR中显示伴随窗口（只有HMD会显示3D图像）。"
+        "comment": "This will not display the companion window in VR (only HMD will show image in 3d)."
     },
     {
         "key": "g_bMixedRealityCockpitCoverEnabled",
         "value": 0,
-        "comment": "设置此项将默认开启（1）或关闭（0）混合现实座舱。游戏中仍可切换。"
+        "comment": "Setting this will default the Mixed Reality Cockpit Cover on (1) or off (0). Can still be toggled in game."
     }
 ]

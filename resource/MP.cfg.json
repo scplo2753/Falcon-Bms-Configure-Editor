@@ -3,7 +3,7 @@
         "key": "g_nTaxiLaunchTime",
         "value": 4,
         "valueType": "uint",
-       "comment": "距离TOT前，选择TAXI时的进入座舱时间（分钟）"
+       "comment": "Time before TOT to launch to TAXI (in min)."
     },
     {
         "key": "g_nReagTimerCam",

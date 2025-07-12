@@ -9,3 +9,5 @@
 - Value validation
 - I18n
 - User define Option Table
+- clean the code
+- add options

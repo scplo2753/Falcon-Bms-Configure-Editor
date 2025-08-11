@@ -13,12 +13,14 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    MP_Manager=new MPItemModel("MP.cfg.json",ui->tableWidget_MP);
-    Comm_Manager=new MPItemModel("Comm.cfg.json",ui->tableWidget_Comm);
-    Graphic_Manager=new MPItemModel("Graphic.cfg.json",ui->tableWidget_Graphic);
-    VR_Manager=new MPItemModel("VR.cfg.json",ui->tableWidget_VR);
-    Other_Manager=new MPItemModel("Other.cfg.json",ui->tableWidget_Other);
-    HotasNkey_Manager=new MPItemModel("Hotas&key.cfg.json",ui->tableWidget_HotasAndKey);
+
+    MP_Manager=new MPItemModel("MP.cfg.json",ui->tableWidget_MP,this);
+    Comm_Manager=new MPItemModel("Comm.cfg.json",ui->tableWidget_Comm,this);
+    Graphic_Manager=new MPItemModel("Graphic.cfg.json",ui->tableWidget_Graphic,this);
+    VR_Manager=new MPItemModel("VR.cfg.json",ui->tableWidget_VR,this);
+    Other_Manager=new MPItemModel("Other.cfg.json",ui->tableWidget_Other,this);
+    HotasNkey_Manager=new MPItemModel("Hotas&key.cfg.json",ui->tableWidget_HotasAndKey,this);
+    UserDefine_Manager=new UserDefineJsonManager(ui->tableWidget_UserDefine,this);
 
     QVector<MPItemModel *> table_list={MP_Manager,Comm_Manager,Graphic_Manager,VR_Manager,Other_Manager,HotasNkey_Manager};
     UserCfgReader cfgreader(table_list);
@@ -46,6 +48,7 @@ void MainWindow::on_pushButton_OK_clicked()
     KeyValueNeedToSave.insert(VR_Manager->getOptionForWrite());
     KeyValueNeedToSave.insert(Other_Manager->getOptionForWrite());
     KeyValueNeedToSave.insert(HotasNkey_Manager->getOptionForWrite());
+    KeyValueNeedToSave.insert(UserDefine_Manager->GetKeyValue());
 
     QStringList UserDefineStrList=QMapToQString(KeyValueNeedToSave);
     UserDefineStrList.append(""); //add blank row

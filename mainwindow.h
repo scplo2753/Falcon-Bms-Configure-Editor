@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include "src/mpitemmodel.h"
+#include "src/userdefinejsonmanager.h"
 #include <QJsonObject>
 #include <QTableWidget>
 #include <QMainWindow>
@@ -43,6 +44,8 @@ private:
     MPItemModel *VR_Manager;
     MPItemModel *Other_Manager;
     MPItemModel *HotasNkey_Manager;
+
+    UserDefineJsonManager *UserDefine_Manager;
 
     QStringList QMapToQString(QMap<QString,QString> qmap);
 };

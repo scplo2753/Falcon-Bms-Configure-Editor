@@ -25,7 +25,7 @@ private:
     QMap<QString,QString> OptionsForWrite;
 
     void initTable();
-    QJsonObject LoadI18nFile();
+    QJsonObject LoadI18nFile() const;
 };
 
 #endif // MPITEMMODEL_H

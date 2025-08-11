@@ -15,7 +15,8 @@ public:
     QMap<QString,QString> getUnknownOptions() const;
 
 private:
-    QString CfgPath;
+    QString baseDir;
+    QString cfgPath;
     QMap<QString,QString> UserDefineOptions;
     QStringList LauncherDefineOptions;
     QMap<QString,QString> UnknownOptions;

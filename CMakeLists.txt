@@ -28,8 +28,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_SOURCES}
         src/mpitemmodel.h src/mpitemmodel.cpp
         src/cfgreader.h src/cfgreader.cpp
-        resources.qrc
         src/usercfgreader.h src/usercfgreader.cpp
+        src/userdefinejsonmanager.h src/userdefinejsonmanager.cpp
+        resources.qrc
 
     )
 # Define target properties for Android with Qt 6 as:

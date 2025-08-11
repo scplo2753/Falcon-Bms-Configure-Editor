@@ -40,21 +40,22 @@ void MPItemModel::initTable() {
         layout->addWidget(checkbox);
         layout->setAlignment(Qt::AlignCenter);
         table->setCellWidget(index, 0, checkWidget);
-
-        QTableWidgetItem *comment_item = nullptr;
+        //---------------------------------------------------------
+        QTableWidgetItem *comment_item = new QTableWidgetItem();
         if (!I18nMap.isEmpty()) {
             if (I18nMap[iterator_object["key"].toString()].isValid())
             {
                 QString LocalizationString=I18nMap[iterator_object["key"].toString()].toString();
-                comment_item = new QTableWidgetItem(LocalizationString);
+                comment_item->setText(LocalizationString);
             }
-        } else
+        }
+        else
         {
-            comment_item = new QTableWidgetItem(iterator_object["comment"].toString());
+            comment_item->setText(iterator_object["comment"].toString());
         }
         comment_item->setFlags(Qt::ItemIsEnabled);
         table->setItem(index, 1, comment_item);
-
+        //-------------------------------------------------------
         QTableWidgetItem *editWidget = new QTableWidgetItem(
             QString::number(iterator_object["value"].toDouble()), 'f');
         table->setItem(index, 2, editWidget);
@@ -82,7 +83,7 @@ QMap<QString, QString> MPItemModel::getOptionForWrite() {
     return Qmap_options;
 }
 
-QJsonObject MPItemModel::LoadI18nFile() {
+QJsonObject MPItemModel::LoadI18nFile() const {
     QString file_Path = "./Localization/" + json_name;
     CfgReader I18nLoader(file_Path);
     QJsonObject raw_objects = I18nLoader.getParsedObjects();

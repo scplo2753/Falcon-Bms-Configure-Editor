@@ -19,7 +19,6 @@ private:
     QJsonDocument json_doc;
 
     QByteArray loadCfg(const QString &File_Path);
-    void parseByte(const QString &File_Path);
 };
 
 #endif // CFGREADER_H

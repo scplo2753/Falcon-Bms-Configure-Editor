@@ -87,7 +87,7 @@
                     "max": 100
                 }
             ],
-            "comment": "If set, the comms menu (Tower/Awacs/Wingman ... etc ...) will no longer be drawn."
+            "comment": "Transparency level of the Comm's menu window in %, 0% is fully transparent, 100% is fully opaque."
         },
         {
             "key":"g_bRingCommMenu",

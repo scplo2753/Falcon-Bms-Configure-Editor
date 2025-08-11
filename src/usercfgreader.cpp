@@ -9,18 +9,18 @@ UserCfgReader::UserCfgReader(QVector<MPItemModel *> table_list,QWidget *parent):
 {
     QSettings registry("\\HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Benchmark Sims\\Falcon BMS 4.38",
                        QSettings::NativeFormat);
-    QString baseDir = registry.value("baseDir").toString();
-    CfgPath = baseDir + "\\User\\Config\\Falcon BMS User.cfg";
+    baseDir = registry.value("baseDir").toString();
+    cfgPath = baseDir + "\\User\\Config\\Falcon BMS User.cfg";
     loadUserCfg();
     initEachTableStatus();
 }
 
 void UserCfgReader::loadUserCfg() {
     QStringList lines;
-    QFile cfgFile(CfgPath);
+    QFile cfgFile(cfgPath);
     if (cfgFile.exists() == false) {
         QMessageBox::warning(this, tr("BMS Configure Editor"),
-                             tr("Falcon BMS User.cfg not found"),
+                             tr("Falcon BMS User.cfg not found")+baseDir+"\\User\\Config\\",
                              QMessageBox::Ok | QMessageBox::Cancel);
         exit(1);
     }
@@ -40,7 +40,7 @@ void UserCfgReader::loadUserCfg() {
             LAUNCHER_DEFINE_BEGINE_LINES=index;
             break;
         }
-        if(lines[index]!="" & lines[index].startsWith("set"))
+        if(lines[index]!="" && lines[index].startsWith("set"))
         {
             QString key,value;
             auto temp=lines[index].split(" ");
@@ -60,7 +60,7 @@ void UserCfgReader::initEachTableStatus()
         const QString &value=iterator.value();
 
         bool key_in_table=false;
-        for(auto table_itor:table_list)
+        for(auto table_itor:std::as_const(table_list))
         {
             if(table_itor->keyIsInList(key,value))
             {

@@ -18,7 +18,7 @@ QByteArray CfgReader::loadCfg(const QString &file_path)
     if(!file_obj.open(QIODevice::ReadOnly|QIODevice::Text))
     {
         QMessageBox::warning(this, tr("BMS Configure Editor"),
-                             tr("Json Not Found"),
+                             tr("%1 Not Found").arg(file_path),
                              QMessageBox::Ok);
         exit(1);
     }

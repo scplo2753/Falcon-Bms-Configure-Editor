@@ -32,6 +32,8 @@ void MPItemModel::initTable() {
     for (int index = 0; index < raw_MP_Cfg.size(); index++) {
         auto iterator_object = raw_MP_Cfg[index].toObject();
 
+        Key_Comment[iterator_object["key"].toString()]=iterator_object["comment"].toString();
+
         index_of_options[iterator_object["key"].toString()]=index;
 
         QCheckBox *checkbox = new QCheckBox();
@@ -42,12 +44,10 @@ void MPItemModel::initTable() {
         table->setCellWidget(index, 0, checkWidget);
         //---------------------------------------------------------
         QTableWidgetItem *comment_item = new QTableWidgetItem();
-        if (!I18nMap.isEmpty()) {
-            if (I18nMap[iterator_object["key"].toString()].isValid())
-            {
+        if (!I18nMap.isEmpty() && I18nMap[iterator_object["key"].toString()].isValid())
+        {
                 QString LocalizationString=I18nMap[iterator_object["key"].toString()].toString();
                 comment_item->setText(LocalizationString);
-            }
         }
         else
         {
@@ -69,20 +69,6 @@ void MPItemModel::initTable() {
     table->setColumnWidth(2, 50);
 }
 
-QMap<QString, QString> MPItemModel::getOptionForWrite() {
-    QMap<QString, QString> Qmap_options;
-    for (int row = 0; row < table->rowCount(); row++) {
-        QCheckBox *checkbox = table->cellWidget(row, 0)->findChild<QCheckBox *>();
-        if (checkbox->isChecked()) {
-            QJsonObject Obj_option = raw_MP_Cfg[row].toObject();
-            QString key = Obj_option["key"].toString();
-            QString value = table->item(row, 2)->text();
-            Qmap_options[key] = value;
-        }
-    }
-    return Qmap_options;
-}
-
 QJsonObject MPItemModel::LoadI18nFile() const {
     QString file_Path = "./Localization/" + json_name;
     CfgReader I18nLoader(file_Path);
@@ -101,4 +87,28 @@ bool MPItemModel::keyIsInList(const QString &key,const QString &value)
         return true;
     }
     return false;
+}
+
+QJsonObject MPItemModel::getKeyComment()
+{
+    return Key_Comment;
+}
+
+QString MPItemModel::getJsonFileName()
+{
+    return json_name;
+}
+
+QMap<QString, QString> MPItemModel::getKeyValue() {
+    QMap<QString, QString> Qmap_options;
+    for (int row = 0; row < table->rowCount(); row++) {
+        QCheckBox *checkbox = table->cellWidget(row, 0)->findChild<QCheckBox *>();
+        if (checkbox->isChecked()) {
+            QJsonObject Obj_option = raw_MP_Cfg[row].toObject();
+            QString key = Obj_option["key"].toString();
+            QString value = table->item(row, 2)->text();
+            Qmap_options[key] = value;
+        }
+    }
+    return Qmap_options;
 }

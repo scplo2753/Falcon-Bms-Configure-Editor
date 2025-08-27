@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
     Graphic_Manager=new MPItemModel("Graphic.cfg.json",ui->tableWidget_Graphic,this);
     VR_Manager=new MPItemModel("VR.cfg.json",ui->tableWidget_VR,this);
     Other_Manager=new MPItemModel("Other.cfg.json",ui->tableWidget_Other,this);
-    HotasNkey_Manager=new MPItemModel("Hotas&key.cfg.json",ui->tableWidget_HotasAndKey,this);
+    HotasNkey_Manager=new MPItemModel("HotasAndKey.cfg.json",ui->tableWidget_HotasAndKey,this);
     UserDefine_Manager=new UserDefineJsonManager(ui->tableWidget_UserDefine,this);
 
     QVector<MPItemModel *> table_list={MP_Manager,Comm_Manager,Graphic_Manager,VR_Manager,Other_Manager,HotasNkey_Manager};
@@ -42,12 +42,12 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_OK_clicked()
 {
     QMap<QString,QString> KeyValueNeedToSave;
-    KeyValueNeedToSave.insert(MP_Manager->getOptionForWrite());
-    KeyValueNeedToSave.insert(Comm_Manager->getOptionForWrite());
-    KeyValueNeedToSave.insert(Graphic_Manager->getOptionForWrite());
-    KeyValueNeedToSave.insert(VR_Manager->getOptionForWrite());
-    KeyValueNeedToSave.insert(Other_Manager->getOptionForWrite());
-    KeyValueNeedToSave.insert(HotasNkey_Manager->getOptionForWrite());
+    KeyValueNeedToSave.insert(MP_Manager->getKeyValue());
+    KeyValueNeedToSave.insert(Comm_Manager->getKeyValue());
+    KeyValueNeedToSave.insert(Graphic_Manager->getKeyValue());
+    KeyValueNeedToSave.insert(VR_Manager->getKeyValue());
+    KeyValueNeedToSave.insert(Other_Manager->getKeyValue());
+    KeyValueNeedToSave.insert(HotasNkey_Manager->getKeyValue());
     KeyValueNeedToSave.insert(UserDefine_Manager->GetKeyValue());
 
     QStringList UserDefineStrList=QMapToQString(KeyValueNeedToSave);
@@ -97,4 +97,22 @@ void MainWindow::on_pushButton_OpenCfg_clicked()
     {
         QMessageBox::warning(this,tr("BMS Configure Editor"),tr("Unable to open Falcon Bms User.cfg using notepad"),QMessageBox::Ok);
     }
+}
+
+void MainWindow::on_pushButton_OutputL18N_clicked()
+{
+    QVector<MPItemModel *> table_list={MP_Manager,Comm_Manager,Graphic_Manager,VR_Manager,Other_Manager,HotasNkey_Manager};
+    for(auto manager_ptr:table_list)
+    {
+        const QJsonObject &JsonObj=manager_ptr->getKeyComment();
+        const QJsonDocument JsonDoc(JsonObj);
+        const QByteArray data(JsonDoc.toJson());
+        QFile JSON_File("./Localization/"+manager_ptr->getJsonFileName());
+        if(!JSON_File.exists())
+        {
+            JSON_File.open(QIODevice::WriteOnly);
+            JSON_File.write(data);
+        }
+    }
+    QMessageBox::information(this,tr("BMS Configure Editor"),tr("Output localization JSON successful"));
 }

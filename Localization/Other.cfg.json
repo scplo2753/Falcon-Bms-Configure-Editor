@@ -1,0 +1,21 @@
+{
+    "g_bEnableRandomFailures": "Enables random failures.",
+    "g_bEnableWIPF18Avionics": "F-18C Work In Progress Avionics (disabled by default).",
+    "g_bF16MfdHasRwr": "Enables the RWR MFD page back for the F16s (unrealistic feature).",
+    "g_bOnlinePlayersDisplayDefault": "Specifies whether the OnlinePlayersDisplay overlay should be ON(1) or OFF(0) by default when entering 3D.",
+    "g_bPilotEntertainment": "Enables the user to control WinAmp.",
+    "g_bPlayDogfightBits": "Enables playback of the various sound comments in the dogfight scores menu.",
+    "g_bPrettyScreenShot": "If set, \"PrtScr\" key will make pretty screenshots (no overlays) instead of normal ones (1 = pretty, 0 = normal).",
+    "g_bPreventScreensaver": "activation of screensaver/powersave mode (1 = prevent, 0 = do not prevent)",
+    "g_bhudAOA": "Enables the HUD AOA for non-F16 aircraft.",
+    "g_bshowframeratedefault": "Specifies whether the frame rate overlay should be ON(1) or OFF(0) by default when entering 3D.",
+    "g_fMeanTimeBetweenFailures": "The MTBF in hours. If set to 0, uses the value in ac.dat.",
+    "g_fPadlockBoxTimeout": "Number in seconds for how long the box should be displayed over any one padlock subject before it disappears (-1 turns it off).",
+    "g_fViewlimitPitchDown": "Overrides all A/C \"viewlimit pitch down\" values from the 3dckpit.dat files, max. 90.0, only higher values take effect.",
+    "g_nActionCameraTimer": "Sets the duration in ms for the action camera before switching views. (default is 8000, i.e. 8 seconds).",
+    "g_nBumpIntensityMinTime": "This determines the minimum bump intensity \"peak time\", i.e how long a value is visible in shared memory (default 100).",
+    "g_nJpegCompression": "Sets the compression level for JPEG screenshots, 0-100 (default 90).",
+    "g_nMessageScrollTime": "Time in seconds until a chat message scrolls out of view.",
+    "g_nPadlockBoxThickness": "Determines the thickness of the padlock box.",
+    "g_nWinAmpInitVolume": "Sets the initial WimAmp volume."
+}

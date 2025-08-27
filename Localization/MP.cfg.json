@@ -1,0 +1,19 @@
+{
+    "g_bEnableABRelocation": "Airbase relocation.",
+    "g_bEnableGtraining": "Enables G training mechanism for human player (G warmup).",
+    "g_bEnforceBandwidthLimits": "If set, the network transfer rates set in the UI will be enforced - BMS usually does limiting based on \"best effort\" only (default 0/false).",
+    "g_bFogOfWarSave": "If set, a client can save only the units of his team or allied, and the enemy spotted units (default 0 = false).",
+    "g_bHostDisableP2pForDubiousConnections": "If activated, dubious connections will automatically be forced to CS although they would work as P2P (default 0 = false).",
+    "g_bNoAiForHumanControlledSqd": "Allows the MP host to specify whether AI pilots can be assigned for player controlled squadrons (default 0 = false).",
+    "g_fAmbientmin": "Allows to tweak sky brightness at night.",
+    "g_nDeagTimerCamp": "AB A/C spawn in Campaign -> lead time before taxiing",
+    "g_nDeagTimerTE": "AB A/C spawn in Tactical Engagement -> lead time before taxiing",
+    "g_nForceMinClientBwSetting": "Allows the MP host to specify a minimum client bandwidth setting (default 0 = no value forced).",
+    "g_nReagTimerCam": "AB A/C despawn in Campaign -> delay before disappearing",
+    "g_nReagTimerTE": "AB A/C despawn in Tactical Engagement -> delay before disappearing",
+    "g_nRemoteControlSurfacesInterval": "Time in ms between control surface updates, valid range 20-1000 (default 200), 0 = disabled.",
+    "g_nRespawnTimeforStuckAI": "Improved method to allow servers to despawn stucked AI on airbases atomatically.",
+    "g_nTaxiLaunchTime": "Time before TOT to launch to TAXI (in min).",
+    "g_nminimum_available_aircraft": "Setting allows you to limit the effect of a low \"percentage\" setting (lower-limit of available aircraft).",
+    "g_npercentage_available_aircraft": "Determines what proportion of your squadron's roster will be available (in %)."
+}

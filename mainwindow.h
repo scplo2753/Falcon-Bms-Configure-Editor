@@ -30,8 +30,9 @@ private slots:
 
     void on_pushButton_OpenCfg_clicked();
 
+    void on_pushButton_OutputL18N_clicked();
+
 private:
-    QJsonObject MP_Obj;
     Ui::MainWindow *ui;
     QStringList LauncherDefinitionOptions;
     QMap<QString,QString> UserDefinitionOptions;

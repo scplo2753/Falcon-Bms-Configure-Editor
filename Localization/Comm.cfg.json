@@ -1,0 +1,15 @@
+{
+    "g_bDisableCommsMenu": "If set, the comms menu (Tower/Awacs/Wingman ... etc ...) will no longer be drawn.",
+    "g_bInitBUPfromDTC": "If set, the UHF Backup presets will be initialized with the UFC DTC values instead of the usual hardcoded internal values.",
+    "g_bRingCommMenu": "Using Ring communications menu(0 for legacy menu)",
+    "g_bUseIvcUiVolume": "UI IVC Volume is controlled independently from the COMM1/2/UHF/VHF volume sliders.",
+    "g_fRadioBalance": "The value in DB on how much to shift the UHF/VHF playback volume out of center (into opposite directions), range +/-100.0",
+    "g_nDynamicVoices": "Maximum number of voices allocated by the sound code.",
+    "g_nF1TeamUiFreq": "Frequency for F1 UI voice comms (for Force on Force type missions).",
+    "g_nF2TeamUiFreq": "Frequency for F2 UI voice comms (for Force on Force type missions).",
+    "g_nIvcUiVolume": "UI IVC Volume in db, range -6 to +6 (if controlled independently).",
+    "g_nMaxBRAARange": "This determine the distance at which the radio communications will use BRAA instead of BE, default 25.",
+    "g_nRadioMenuAlpha": "Transparency level of the Comm's menu window in %, 0% is fully transparent, 100% is fully opaque.",
+    "g_nSoundSwitchFix": "This patch may fix the problem of AI comms disappearing.",
+    "g_nSoundUpdateMS": "How many milliseconds must elapse before the sound code updates."
+}

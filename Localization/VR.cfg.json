@@ -1,0 +1,11 @@
+{
+    "g_bMixedRealityCockpitCoverEnabled": "Setting this will default the Mixed Reality Cockpit Cover on (1) or off (0). Can still be toggled in game.",
+    "g_bVRNoPresent": "This will not display the companion window in VR (only HMD will show image in 3d).",
+    "g_bVRParallelRenderThread": "Enable multi-threaded rendering for VR (1: higher throughput; 0: lower latency).",
+    "g_bVRPredictFutureHeadMatrices": "Predict future head matrices for SteamVR. Only works with g_bVRParallelRenderThread enabled.",
+    "g_fVRIPDMultiplier": "VR interpupillary distance (IPD) factor.",
+    "g_fVRResolution": "VR resolution multiplier.",
+    "g_fVRZoom": "Factor to reduce field-of-view in VR, for LookCloser callback.",
+    "g_nVRHMCSEYE": "HMCS renders, 0 right eye, 1 left eye, -1 both eyes.",
+    "g_nVRHMD": "Enables VR - 0: no VR; 1: SteamVR; 2: OpenXR.  (overridden by -vr, -xr or -novr command line options)"
+}

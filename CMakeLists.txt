@@ -14,6 +14,21 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets LinguistTools)
 
 set(TS_FILES BMSConfigure_zh_CN.ts)
 
+set(LOCALIZATION_DIR "${CMAKE_SOURCE_DIR}/Localization")
+set(BUILD_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}")
+
+add_custom_target(copy_json_files
+    COMMAND ${CMAKE_COMMAND} -E copy
+         "${LOCALIZATION_DIR}/MP.cfg.json"
+         "${LOCALIZATION_DIR}/Comm.cfg.json"
+         "${LOCALIZATION_DIR}/Graphic.cfg.json"
+         "${LOCALIZATION_DIR}/HotasAndKey.cfg.json"
+         "${LOCALIZATION_DIR}/Other.cfg.json"
+         "${LOCALIZATION_DIR}/VR.cfg.json"
+         "${BUILD_OUTPUT_DIR}/"
+    COMMENT "Copying JSON configuration files..."
+)
+
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
@@ -54,6 +69,8 @@ else()
 
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
+
+add_dependencies(BMSConfigure copy_json_files)
 
 target_link_libraries(BMSConfigure PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 

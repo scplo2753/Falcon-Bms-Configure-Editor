@@ -12,8 +12,10 @@ class MPItemModel : public QStandardItemModel
 public:
     MPItemModel(QString json_name,QTableWidget *table,QWidget *parent=nullptr);
     ~MPItemModel();
-    QMap<QString,QString> getOptionForWrite();
     bool keyIsInList(const QString &key,const QString &value);
+    QMap<QString,QString> getKeyValue();
+    QJsonObject getKeyComment();
+    QString getJsonFileName();
 
 private:
     QTableWidget *table;
@@ -22,7 +24,8 @@ private:
     QJsonArray raw_MP_Cfg;
     QVariantMap I18nMap;
     QMap<QString,int> index_of_options;
-    QMap<QString,QString> OptionsForWrite;
+    QMap<QString,QString> Options_For_Write;
+    QJsonObject Key_Comment;
 
     void initTable();
     QJsonObject LoadI18nFile() const;

@@ -1,0 +1,22 @@
+{
+    "g_bNewTerrainPhotorealForce4KTiles": "Setting this one will cancel the loading of the high resolution 16K Photoreal textures – At some systems, especially those that struggle with VRAM and GPU processing it may be a real optimization option. However, the photoreal will be much lower resolution.",
+    "g_bNewTerrainProceduralUse1024Textures": "By default the procedural textures use 2048x2048 textures, but there is a folder of lower resolution textures 1024x1024. Using the lower resolution textures can help with performance when close to the ground",
+    "g_bNewTerrainUseHiresTiles": "Load and make use of the selective places (Mostly Airbases) Hires Tiles. Can possibly help with performance if disabled, however will mean no Hires tiles will be used at all.",
+    "g_bRenderNewTerrainToENVMap": "Render or not render the New Terrain into the Environment map. Can have performance effect if disabled, however not rendering terrain to the ENV map will mean reflections will look much worse (Instead of terrain there will be fog color)",
+    "g_bUseTerrainNightLightsTextureFilter": "This controls which texture filter to use for the terrain tile night lights (1 = anisotropic filter, 0 = point filter).",
+    "g_bUseTracerColors": "Any aircraft from a Red team will have green tracers.",
+    "g_fNewTerrainCoarseBumpMapIntensity": "Decide how strong the terrain bump mapping will be noticed, values between 0 - 1, default 0.625",
+    "g_fNewTerrainFrustumCullingFactor": "Float value that decide the Terrain frustum culling while the GPU performs the rendering. Change the default value (Increase slowly) only if you are on a wide FOV and start to see some wrong triangles at edges of screen.",
+    "g_fNewTerrainGlobalColorMapAltitudeThreshold": "Decide at what altitude (AGL) the GCM effect will start blending in.",
+    "g_fNewTerrainGlobalColorMapBlendingFactor": "Decides the blending factor",
+    "g_fNewTerrainGlobalColorMapIntensity": "Decided the GCM intensity",
+    "g_fNewTerrainProceduralDetailsStrength": "How much the procedural detail color textures will be applied on the terrain.",
+    "g_fNewTerrainProceduralDistance": " View distance, in KM, that the procedural texturing will start to blend in. Reducing it to 0 will cancel the Procedural texturing entirely.",
+    "g_fNewTerrainProceduralNormalsStrength": "How much the procedural Normal maps textures will be applied on the terrain",
+    "g_fNewTerrainTessellationFactor": "The tessellation factor will decide how much closer or further out the mesh will become more detailed",
+    "g_nHdrToneMapMode": "Tone map modes.(See technical-manual.pdf)",
+    "g_nJetHeatShaderMaxSpeed": "Jet Heat Exhaust will disappears when speed (in knots) exceed this value (default 250 knots).",
+    "g_nNewTerrainCoarseBumpMapTilingCx": "Decide the tiling factor of the terrain bump map. Higher values mean LOWER tiling (The factor is a divider) - valid values 1 - 64 (Integeres only), Default 12.",
+    "g_nNewTerrainHiresTilesDistKM": "Decide how far Hires tiles will start to show up. May affect VRAM usage and some performance (low effect maybe, but still)",
+    "g_nPrefilterENVSampling": "Decide how many texturing passes the Environment mapping algorithm will perform while creating the map. Reducing the default value may help with performance."
+}

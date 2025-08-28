@@ -21,7 +21,7 @@
        <locale language="English" country="UnitedStates"/>
       </property>
       <property name="currentIndex">
-       <number>6</number>
+       <number>2</number>
       </property>
       <property name="tabBarAutoHide">
        <bool>false</bool>
@@ -169,7 +169,7 @@
      <item>
       <widget class="QPushButton" name="pushButton_OutputL18N">
        <property name="text">
-        <string>Output translation file</string>
+        <string>Output l18n file</string>
        </property>
       </widget>
      </item>

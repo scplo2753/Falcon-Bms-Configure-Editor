@@ -3,13 +3,13 @@
 
 #include <QTableWidget>
 #include <QJsonDocument>
-#include <QWidget>
 #include <QDir>
 
-class UserDefineJsonManager : public QWidget
+class UserDefineJsonManager : public QObject
 {
+    Q_OBJECT
 public:
-    explicit UserDefineJsonManager(QTableWidget *table_widget,QWidget *parent = nullptr);
+    explicit UserDefineJsonManager(QTableWidget *table_widget,QObject *parent = nullptr);
     const QMap<QString,QString> GetKeyValue();
 
 private:

@@ -1,8 +1,9 @@
 #include "cfgreader.h"
 #include <QMessageBox>
+#include <QApplication>
 
-CfgReader::CfgReader(const QString &file_path,QWidget *parent):
-    QWidget(parent)
+CfgReader::CfgReader(const QString &file_path,QObject *parent):
+    QObject(parent)
 {
     json_doc=QJsonDocument::fromJson(loadCfg(file_path));
 }
@@ -17,7 +18,7 @@ QByteArray CfgReader::loadCfg(const QString &file_path)
     QFile file_obj(file_path);
     if(!file_obj.open(QIODevice::ReadOnly|QIODevice::Text))
     {
-        QMessageBox::warning(this, tr("BMS Configure Editor"),
+        QMessageBox::warning(QApplication::activeWindow(), tr("BMS Configure Editor"),
                              tr("%1 Not Found").arg(file_path),
                              QMessageBox::Ok);
         exit(1);

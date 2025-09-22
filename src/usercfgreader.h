@@ -4,12 +4,12 @@
 #include "mpitemmodel.h"
 
 #include <QString>
-#include <QWidget>
 
-class UserCfgReader : public QWidget
+class UserCfgReader : public QObject
 {
+    Q_OBJECT
 public:
-    UserCfgReader(QVector<MPItemModel *> table_list,QWidget *parent=nullptr);
+    UserCfgReader(QVector<MPItemModel *> table_list,QObject *parent=nullptr);
     QMap<QString,QString> getUserDefineOptions() const;
     const QStringList getLauncherDefineOptions() const;
     QMap<QString,QString> getUnknownOptions() const;

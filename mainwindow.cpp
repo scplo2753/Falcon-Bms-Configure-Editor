@@ -7,6 +7,7 @@
 #include <QIODevice>
 #include <QFile>
 #include <qsettings.h>
+#include <utility>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -42,13 +43,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_OK_clicked()
 {
     QMap<QString,QString> KeyValueNeedToSave;
-    KeyValueNeedToSave.insert(MP_Manager->getKeyValue());
-    KeyValueNeedToSave.insert(Comm_Manager->getKeyValue());
-    KeyValueNeedToSave.insert(Graphic_Manager->getKeyValue());
-    KeyValueNeedToSave.insert(VR_Manager->getKeyValue());
-    KeyValueNeedToSave.insert(Other_Manager->getKeyValue());
-    KeyValueNeedToSave.insert(HotasNkey_Manager->getKeyValue());
-    KeyValueNeedToSave.insert(UserDefine_Manager->GetKeyValue());
+    KeyValueNeedToSave.insert(std::move(MP_Manager->getKeyValue()));
+    KeyValueNeedToSave.insert(std::move(Comm_Manager->getKeyValue()));
+    KeyValueNeedToSave.insert(std::move(Graphic_Manager->getKeyValue()));
+    KeyValueNeedToSave.insert(std::move(VR_Manager->getKeyValue()));
+    KeyValueNeedToSave.insert(std::move(Other_Manager->getKeyValue()));
+    KeyValueNeedToSave.insert(std::move(HotasNkey_Manager->getKeyValue()));
+    KeyValueNeedToSave.insert(std::move(UserDefine_Manager->GetKeyValue()));
 
     QStringList UserDefineStrList=QMapToQString(KeyValueNeedToSave);
     UserDefineStrList.append(""); //add blank row

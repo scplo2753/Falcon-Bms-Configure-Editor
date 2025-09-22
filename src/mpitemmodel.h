@@ -7,11 +7,13 @@
 #include <QJsonArray>
 #include <QTableWidget>
 
-class MPItemModel : public QStandardItemModel
+class MPItemModel : public QObject
 {
+    Q_OBJECT
 public:
-    MPItemModel(QString json_name,QTableWidget *table,QWidget *parent=nullptr);
+    MPItemModel(const char* json_name,QTableWidget *table,QObject *parent=nullptr);
     ~MPItemModel();
+
     bool keyIsInList(const QString &key,const QString &value);
     QMap<QString,QString> getKeyValue();
     QJsonObject getKeyComment();
@@ -29,6 +31,8 @@ private:
 
     void initTable();
     QJsonObject LoadI18nFile() const;
+
+    QWidget* TypeBool();
 };
 
 #endif // MPITEMMODEL_H

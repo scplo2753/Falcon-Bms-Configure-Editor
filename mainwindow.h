@@ -34,6 +34,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
     QStringList LauncherDefinitionOptions;
     QMap<QString,QString> UserDefinitionOptions;
     QMap<QString,QString> UnknownOptions;
@@ -45,7 +46,6 @@ private:
     MPItemModel *VR_Manager;
     MPItemModel *Other_Manager;
     MPItemModel *HotasNkey_Manager;
-
     UserDefineJsonManager *UserDefine_Manager;
 
     QStringList QMapToQString(QMap<QString,QString> qmap);

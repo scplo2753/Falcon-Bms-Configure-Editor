@@ -6,10 +6,11 @@
 #include <QJsonObject>
 #include <QMessageBox>
 #include <QTableWidgetItem>
+#include <QApplication>
 
 UserDefineJsonManager::UserDefineJsonManager(QTableWidget *table_widget,
-                                            QWidget *parent)
-    : table_widget(table_widget), json_path("./Custom Json"), QWidget{parent}
+                                            QObject *parent)
+    : table_widget(table_widget), json_path("./Custom Json"), QObject{parent}
 {
     const QFileInfoList &file_list = findJsonFiles();
     LoadJson(file_list);
@@ -29,7 +30,7 @@ void UserDefineJsonManager::LoadJson(const QFileInfoList &FilePath) {
         const QString path = file.filePath();
         QFile file_obj(path);
         if (!file_obj.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            QMessageBox::warning(this, tr("BMS Configure Editor"),
+            QMessageBox::warning(QApplication::activeWindow(), tr("BMS Configure Editor"),
                                  tr("%1 reading error").arg(path), QMessageBox::Ok);
         } else {
             QTextStream file_text(&file_obj);
@@ -40,11 +41,11 @@ void UserDefineJsonManager::LoadJson(const QFileInfoList &FilePath) {
                 JsonToTable(json_doc.array());
             } else {
                 if (json_doc.isEmpty() || json_doc.isNull()) {
-                    QMessageBox::warning(this, tr("BMS Configure Editor"),
+                    QMessageBox::warning(QApplication::activeWindow(), tr("BMS Configure Editor"),
                                          tr("%1 is empty").arg(path), QMessageBox::Ok);
                 }
                 if (json_doc.isObject()) {
-                    QMessageBox::warning(this, tr("BMS Configure Editor"),
+                    QMessageBox::warning(QApplication::activeWindow(), tr("BMS Configure Editor"),
                                          tr("%1 format error").arg(path),
                                          QMessageBox::Ok);
                 }
@@ -54,7 +55,6 @@ void UserDefineJsonManager::LoadJson(const QFileInfoList &FilePath) {
 }
 
 void UserDefineJsonManager::JsonToTable(const QJsonArray &array) {
-    int end_number = table_widget->rowCount();
     if (!array.isEmpty()) {
         for (int i = 0; i < array.size(); i++) {
 
@@ -65,11 +65,12 @@ void UserDefineJsonManager::JsonToTable(const QJsonArray &array) {
 
             if (key.isEmpty() || comment.isEmpty())
                 QMessageBox::warning(
-                    this, "BMS Configure",
+                    QApplication::activeWindow(), "BMS Configure",
                     QString("The key or comment of {1}th object in json not found")
                         .arg(i),
                     QMessageBox::Ok);
             else {
+                int end_number = table_widget->rowCount();
                 end_number = table_widget->rowCount();
                 table_widget->insertRow(1);
 

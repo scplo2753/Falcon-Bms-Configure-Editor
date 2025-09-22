@@ -3,12 +3,14 @@
 #include <QCheckBox>
 #include <QHBoxLayout>
 #include <QLineEdit>
+#include <utility>
 
-MPItemModel::MPItemModel(QString json_name, QTableWidget *table,QWidget *parent)
+
+MPItemModel::MPItemModel(const char* json_name, QTableWidget *table, QObject *parent)
     : json_name(json_name),
-    json_path(":/cfg/resource/" + json_name),
+    json_path(std::move(":/cfg/resource/" + QString(json_name))),
     table(table),
-    QStandardItemModel(parent)
+    QObject(parent)
 {
     CfgReader MP_CFG_READER(json_path);
     raw_MP_Cfg = MP_CFG_READER.getParsedArray();
@@ -36,18 +38,20 @@ void MPItemModel::initTable() {
 
         index_of_options[iterator_object["key"].toString()]=index;
 
-        QCheckBox *checkbox = new QCheckBox();
-        QWidget *checkWidget = new QWidget();
+        QWidget *checkWidget = new QWidget(table);
         QHBoxLayout *layout = new QHBoxLayout(checkWidget);
+        QCheckBox *checkbox = new QCheckBox(table);
         layout->addWidget(checkbox);
         layout->setAlignment(Qt::AlignCenter);
         table->setCellWidget(index, 0, checkWidget);
+
         //---------------------------------------------------------
+
         QTableWidgetItem *comment_item = new QTableWidgetItem();
         if (!I18nMap.isEmpty() && I18nMap[iterator_object["key"].toString()].isValid())
         {
-                QString LocalizationString=I18nMap[iterator_object["key"].toString()].toString();
-                comment_item->setText(LocalizationString);
+            QString LocalizationString=I18nMap[iterator_object["key"].toString()].toString();
+            comment_item->setText(LocalizationString);
         }
         else
         {
@@ -55,9 +59,11 @@ void MPItemModel::initTable() {
         }
         comment_item->setFlags(Qt::ItemIsEnabled);
         table->setItem(index, 1, comment_item);
-        //-------------------------------------------------------
-        QTableWidgetItem *editWidget = new QTableWidgetItem(
-            QString::number(iterator_object["value"].toDouble()), 'f');
+
+        //------------------------value Widget---------------------------
+
+        QString valueType=iterator_object["valueType"].toString();
+        QTableWidgetItem *editWidget = new QTableWidgetItem(QString::number(iterator_object["value"].toDouble()), 'f');
         table->setItem(index, 2, editWidget);
     }
 
@@ -111,4 +117,14 @@ QMap<QString, QString> MPItemModel::getKeyValue() {
         }
     }
     return Qmap_options;
+}
+
+QWidget* MPItemModel::TypeBool()
+{
+    QWidget* check_widget=new QWidget(table);
+    QHBoxLayout* check_layout=new QHBoxLayout(check_widget);
+    QCheckBox* check_box=new QCheckBox(table);
+    check_layout->addWidget(check_box);
+    check_layout->setAlignment(Qt::AlignCenter);
+    return check_widget;
 }

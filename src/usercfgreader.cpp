@@ -2,9 +2,10 @@
 #include <QFile>
 #include <QMessageBox>
 #include <QSettings>
+#include <QApplication>
 
-UserCfgReader::UserCfgReader(QVector<MPItemModel *> table_list,QWidget *parent):
-    QWidget(parent),
+UserCfgReader::UserCfgReader(QVector<MPItemModel *> table_list,QObject *parent):
+    QObject(parent),
     table_list(table_list)
 {
     QSettings registry("\\HKEY_LOCAL_MACHINE\\SOFTWARE\\WOW6432Node\\Benchmark Sims\\Falcon BMS 4.38",
@@ -12,14 +13,14 @@ UserCfgReader::UserCfgReader(QVector<MPItemModel *> table_list,QWidget *parent):
     baseDir = registry.value("baseDir").toString();
     cfgPath = baseDir + "\\User\\Config\\Falcon BMS User.cfg";
     loadUserCfg();
-    initEachTableStatus();
+    //initEachTableStatus();
 }
 
 void UserCfgReader::loadUserCfg() {
     QStringList lines;
     QFile cfgFile(cfgPath);
     if (cfgFile.exists() == false) {
-        QMessageBox::warning(this, tr("BMS Configure Editor"),
+        QMessageBox::warning(QApplication::activeWindow(), tr("BMS Configure Editor"),
                              tr("Falcon BMS User.cfg not found")+baseDir+"\\User\\Config\\",
                              QMessageBox::Ok | QMessageBox::Cancel);
         exit(1);
@@ -74,8 +75,6 @@ void UserCfgReader::initEachTableStatus()
         }
     }
 }
-
-
 
 QMap<QString,QString> UserCfgReader::getUserDefineOptions() const
 {
